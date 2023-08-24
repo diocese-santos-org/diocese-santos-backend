@@ -24,7 +24,7 @@ jobs:
 
       - name: Print branch name
         run:
-          echo "Branch name: ${{ env.BRANCH_NAME }}"
+          echo "'${{ env.BRANCH_NAME }}'"
 
       - name: Create PR
         run: |
