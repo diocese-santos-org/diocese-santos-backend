@@ -9,5 +9,5 @@ services:
       MYSQL_DATABASE: dioceseSantos
     ports:
       - "3306:3306"
-    volumes:
-      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+    #volumes:
+    # - ./data.sql:/docker-entrypoint-initdb.d/data.sql
