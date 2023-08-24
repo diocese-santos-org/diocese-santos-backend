@@ -1,4 +1,4 @@
-name: Auto Pull Request on feat commit
+name: Auto Pull Request on Master by Develop
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         id: get_coverage
         run: |
           # Obtenha a porcentagem de cobertura dos relatórios (ajuste o caminho conforme necessário)
-          coverage=$(cat target/site/jacoco/index.html | grep -oP 'Total[^>]*>\K[^%]+')
+          coverage=$(cat target/site/jacoco/index.html | grep -oP 'Total[^>]*>\K\d+')
           echo "Coverage: $coverage%"
 
       - name: Create PR if coverage is high
