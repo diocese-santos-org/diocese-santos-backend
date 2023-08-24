@@ -18,11 +18,21 @@ jobs:
         run: |
           mvn clean install
 
-      - name: Create PR if commit starts with feat
-        if: startsWith(github.event.head_commit.message, 'feat:')
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          commit-message: 'Auto PR for feat commit'
-          title: 'Auto Pull Request'
-          branch: develop
+      - name: Create PR
+        run: |
+            # Obter o nome da branch
+            branch_name=$(git branch --show-current)
+            
+            # Crie um novo Pull Request usando a API do GitHub
+            response=$(curl -X POST \
+              -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/${{ github.repository }}/pulls \
+              -d '{
+                "title": "Auto Pull Request",
+                "head": "develop",
+                "base": "'$branch_name'"
+              }')
+            
+            # Imprima a URL do PR criado
+            echo "Pull Request URL: $(echo $response | jq -r .html_url)"
