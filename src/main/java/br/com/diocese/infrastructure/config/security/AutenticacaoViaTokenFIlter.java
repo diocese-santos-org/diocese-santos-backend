@@ -2,7 +2,7 @@ package br.com.diocese.infrastructure.config.security;
 
 
 import br.com.diocese.domain.model.Usuario;
-import br.com.diocese.infrastructure.config.repository.UsuarioRepository;
+import br.com.diocese.infrastructure.repository.UsuarioRepository;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

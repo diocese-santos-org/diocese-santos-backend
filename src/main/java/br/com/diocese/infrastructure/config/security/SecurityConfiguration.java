@@ -1,6 +1,6 @@
 package br.com.diocese.infrastructure.config.security;
 
-import br.com.diocese.infrastructure.config.repository.UsuarioRepository;
+import br.com.diocese.infrastructure.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

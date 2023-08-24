@@ -1,4 +1,4 @@
-package br.com.diocese.infrastructure.config;
+package br.com.diocese.infrastructure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ public class SweggerConfigurations {
     public Docket forumApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("br.com.unidrive"))
+                .apis(RequestHandlerSelectors.basePackage("br.com.diocese"))
                 .paths(PathSelectors.ant("/**"))
                         .build();
     }

@@ -1,4 +1,4 @@
-package br.com.diocese.infrastructure.config.repository;
+package br.com.diocese.infrastructure.repository;
 
 
 import br.com.diocese.domain.model.Usuario;
@@ -9,8 +9,6 @@ import java.util.Optional;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     Optional<Usuario> findByEmail(String email);
-
-    Optional<Usuario> findByConcessionaria_Cnpj(String cnpj);
 
 
 

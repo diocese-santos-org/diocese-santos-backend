@@ -26,8 +26,6 @@ public class Usuario implements UserDetails, Serializable {
 
     private String telefone;
 
-    @Column(unique = true)
-    private String cnh;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Perfil> perfis = new ArrayList<>();
 
