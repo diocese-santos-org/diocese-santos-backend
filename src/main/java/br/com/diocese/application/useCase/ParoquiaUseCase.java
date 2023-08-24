@@ -29,8 +29,6 @@ public class ParoquiaUseCase {
 
     public ResponseEntity retornarParoquias(double latMobile, double longMobile) {
 
-        //cadastrarParoquias();
-
         SortedMap<Double, Paroquia> nearbyObjects = new TreeMap<>();
         List<ParoquiasPertoDto> nearbyObjectsList = new ArrayList<>();
 
@@ -57,14 +55,14 @@ public class ParoquiaUseCase {
         return ResponseEntity.ok(nearbyObjectsList);
     }
 
-    private void cadastrarParoquias() {
+    /*private void cadastrarParoquias() {
 
         var paroquia = new Paroquia();
         var paroquia1 = new Paroquia();
         var paroquia2 = new Paroquia();
 
 
-        /*var endereco = new Endereco();
+        var endereco = new Endereco();
         endereco.set
         endereco.setLatitude(-23.947322);
         endereco.setLongitude(-46.391601);
@@ -79,7 +77,7 @@ public class ParoquiaUseCase {
 
         enderecoRepository.save(endereco);
         enderecoRepository.save(endereco1);
-        enderecoRepository.save(endereco2);*/
+        enderecoRepository.save(endereco2);
 
         var listaEndereco = enderecoRepository.findAll();
 
@@ -92,5 +90,5 @@ public class ParoquiaUseCase {
         paroquiaRepository.save(paroquia2);
 
 
-    }
+    }*/
 }

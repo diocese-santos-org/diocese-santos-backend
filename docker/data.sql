@@ -12,3 +12,7 @@ alter table usuario add constraint UK_5171l57faosmj8myawaucatdw unique (email);
 alter table paroquia add constraint FKllprmoy5n2nqdvhwjvribm3na foreign key (endereco_id) references endereco (id);
 alter table usuario_perfis add constraint FK7bhs80brgvo80vhme3u8m6ive foreign key (perfis_id) references perfil (id);
 alter table usuario_perfis add constraint FKs91tgiyagbilt959wbufiphgc foreign key (usuario_id) references usuario (id);
+
+INSERT INTO dioceseSantos.endereco (id, cep, cidade, endereco_completo, estado, latitude, longitude) VALUES (1, '11340340', 'São Vicente', 'Rua 1 - São Vicente/SP', 'SP', -23.947322, -46.391601);
+INSERT INTO dioceseSantos.endereco (id, cep, cidade, endereco_completo, estado, latitude, longitude) VALUES (1, '11349349', 'São Vicente', 'Rua 2 - São Vicente/SP', 'SP', -24.947322, -47.391601);
+INSERT INTO dioceseSantos.endereco (id, cep, cidade, endereco_completo, estado, latitude, longitude) VALUES (1, '11403923', 'São Vicente', 'Rua 3 - São Vicente/SP', 'SP', -24.947322, -45.391601);

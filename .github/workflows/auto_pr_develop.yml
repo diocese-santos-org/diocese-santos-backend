@@ -14,10 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build project
-        run: |
-          mvn clean install -DskipTests=true
-
       - name: Create PR if commit starts with feat
         if: startsWith(github.event.head_commit.message, 'feat:')
         uses: peter-evans/create-pull-request@v3

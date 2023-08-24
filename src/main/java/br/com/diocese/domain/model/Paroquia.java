@@ -19,10 +19,10 @@ public class Paroquia {
     private String email;
     private String secretaria;
 
-   /* @OneToOne
+   @OneToOne
     private Missa missas;
 
     @OneToOne
-    private RedesSociais redesSociais;*/
+    private RedesSociais redesSociais;
 
 }
