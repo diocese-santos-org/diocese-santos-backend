@@ -26,3 +26,11 @@ jobs:
         run: |
           echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
           echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+
+      - name: Check Coverage and Print Result
+        run: |
+          if [ "$coverage" -gt "70" ]; then
+            echo "Pode passar!"
+          else
+            echo "Não pode passar!"
+          fi
