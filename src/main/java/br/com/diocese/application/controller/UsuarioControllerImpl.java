@@ -21,7 +21,6 @@ public class UsuarioControllerImpl implements UsuarioController {
     @GetMapping
     public ResponseEntity<?> obterUsuario(@RequestHeader(value = "Authorization") String token) {
 
-        System.out.println("Teste");
         return usuarioUseCase.obterUsuario(token);
 
     }
