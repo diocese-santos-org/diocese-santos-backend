@@ -1,7 +1,8 @@
 package br.com.diocese.domain.model;
 
-import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
+
+import javax.persistence.*;
 
 
 @Entity
