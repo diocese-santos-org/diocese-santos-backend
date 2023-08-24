@@ -1,0 +1,31 @@
+name: Auto Pull Request on feat commit
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build project
+        run: |
+          # Executar o comando Maven para clean install
+          # Certifique-se de que o arquivo pom.xml esteja presente
+          # Substitua 'mvn' pelo comando apropriado para o Maven no seu sistema
+          mvn clean install
+
+      - name: Create PR if commit starts with feat
+        if: startsWith(github.event.head_commit.message, 'feat:')
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          commit-message: 'Auto PR for feat commit'
+          title: 'Auto Pull Request'
+          branch: develop
