@@ -1,4 +1,4 @@
-name: Auto Pull Request on feat commit
+name: Auto Pull Request to develop with commit feat
 
 on:
   push:

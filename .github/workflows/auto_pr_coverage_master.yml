@@ -17,27 +17,12 @@ jobs:
         run: |
             mvn clean test
             mvn jacoco:report
-      
-      - name: Get Coverage Percentage
-        id: get_coverage
-        run: |
-          # Extrair a cobertura do arquivo jacoco.xml
-          coverage=$(xmllint --xpath "string(//counter[@type='INSTRUCTION']/@covered)" target/site/jacoco/jacoco.xml)
-          echo "Coverage: $coverage%"
 
-      - name: Create PR if coverage is high
-        if: ${{ steps.get_coverage.outputs.coverage >= 70 }}
+      - name: Generate JaCoCo Badge
+        id: jacoco
+        uses: cicirello/jacoco-badge-generator@v2.0.1
+
+      - name: Log coverage percentage
         run: |
-          git checkout -b coverage-pr
-          git push origin coverage-pr
-          
-          # Crie o Pull Request usando a ação 'peter-evans/create-pull-request'
-          uses: peter-evans/create-pull-request@v3
-          with:
-            token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-            commit-message: 'Auto PR for feat commit'
-            title: 'Auto Pull Request'
-            branch: master
-          
-          # Imprima a URL do PR criado
-          echo "Pull Request URL: ${{ steps.get_coverage.outputs.pr-url }}"
+          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+          echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
