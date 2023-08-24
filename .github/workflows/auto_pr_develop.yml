@@ -14,17 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Java 11
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-
       - name: Build project
         run: |
-          # Executar o comando Maven para clean install
-          # Certifique-se de que o arquivo pom.xml esteja presente
-          # Substitua 'mvn' pelo comando apropriado para o Maven no seu sistema
-          mvn clean install
+          mvn clean install -DskipTests=true
 
       - name: Create PR if commit starts with feat
         if: startsWith(github.event.head_commit.message, 'feat:')

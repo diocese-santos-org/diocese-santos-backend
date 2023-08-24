@@ -3,7 +3,7 @@ package br.com.diocese.application.useCase;
 
 import br.com.diocese.application.controller.dto.UsuarioDto;
 import br.com.diocese.application.controller.form.UsuarioForm;
-import br.com.diocese.domain.contract.useCase.UsuarioUseCase;
+import br.com.diocese.domain.contract.useCase.IUsuarioUseCase;
 import br.com.diocese.domain.model.Usuario;
 import br.com.diocese.infrastructure.config.security.TokenService;
 import br.com.diocese.infrastructure.repository.UsuarioRepository;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 
 @Component
-public class UsuarioUseCaseImpl implements UsuarioUseCase {
+public class UsuarioUseCase implements IUsuarioUseCase {
 
 
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

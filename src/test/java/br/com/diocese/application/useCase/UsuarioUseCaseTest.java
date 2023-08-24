@@ -1,7 +1,5 @@
 package br.com.diocese.application.useCase;
 
-import br.com.diocese.application.controller.UsuarioControllerImpl;
-import br.com.diocese.domain.model.Usuario;
 import br.com.diocese.infrastructure.config.security.TokenService;
 import br.com.diocese.infrastructure.repository.UsuarioRepository;
 import org.junit.Test;
@@ -12,16 +10,16 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 
-import static br.com.diocese.utils.Utils.retornaUsuario;
+import static br.com.diocese.utils.Utils.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
-public class UsuarioUseCaseImplTest {
+public class UsuarioUseCaseTest {
 
     @InjectMocks
-    UsuarioUseCaseImpl usuarioUseCase;
+    UsuarioUseCase usuarioUseCase;
 
     @Mock
     TokenService tokenService;
@@ -33,9 +31,9 @@ public class UsuarioUseCaseImplTest {
     public void testarSimples() {
 
         when(usuarioRepository.getById(any())).thenReturn(retornaUsuario());
-        when(tokenService.recuperarToken(anyString())).thenReturn("iadsikdsikadsoisdio");
+        when(tokenService.recuperarToken(anyString())).thenReturn(TOKEN_TRATADO);
 
-        var response = usuarioUseCase.obterUsuario("Bearer iadsikdsikadsoisdio");
+        var response = usuarioUseCase.obterUsuario(BEARER_TOKEN);
 
         Assertions.assertNotEquals("", response.getBody());
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import javax.validation.Valid;
 
-public interface UsuarioController {
+public interface IUsuarioController {
 
     public ResponseEntity<?> obterUsuario(@RequestHeader(value = "Authorization") String token);
 

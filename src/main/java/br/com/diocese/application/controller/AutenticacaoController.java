@@ -2,7 +2,7 @@ package br.com.diocese.application.controller;
 
 import br.com.diocese.application.controller.dto.TokenDto;
 import br.com.diocese.application.controller.form.LoginForm;
-import br.com.diocese.domain.contract.controller.AutenticacaoController;
+import br.com.diocese.domain.contract.controller.IAutenticacaoController;
 import br.com.diocese.infrastructure.config.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-public class AutenticacaoControllerImpl implements AutenticacaoController {
+public class AutenticacaoController implements IAutenticacaoController {
 
     @Autowired
     private AuthenticationManager authManager;

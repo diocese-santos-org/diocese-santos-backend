@@ -6,5 +6,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: dioceseSantos
     ports:
       - "3306:3306"
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
