@@ -4,7 +4,6 @@ on:
   push:
     branches-ignore:
       - main
-      - develop
 
 jobs:
   auto_pr_develop:
@@ -14,33 +13,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build project
+      - name: Build and Test
         run: |
-          mvn clean install
-
-      - name: Extract branch name
-        id: branch_name
-        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
-
-      - name: Print branch name
-        run:
-          echo "${{ env.BRANCH_NAME }}"
-
-      - name: Create PR
+            mvn clean test
+            mvn jacoco:report
+      
+      - name: Get Coverage Percentage
+        id: get_coverage
         run: |
-          # Obter o nome da branch
-          branch_name=${{ env.BRANCH_NAME }}
+          # Obtenha a porcentagem de cobertura dos relatórios (ajuste o caminho conforme necessário)
+          coverage=$(cat target/site/jacoco/index.html | grep -oP 'Total[^>]*>\K[^%]+')
+          echo "Coverage: $coverage%"
 
-          # Crie um novo Pull Request usando a API do GitHub
-          response=$(curl -X POST \
-            -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN  }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/pulls \
-            -d '{
-              "title": "Auto Pull Request",
-              "head": "develop",
-              "base": "'$branch_name'"
-            }')
-
+      - name: Create PR if coverage is high
+        if: ${{ steps.get_coverage.outputs.coverage >= 70 }}
+        run: |
+          git checkout -b coverage-pr
+          git push origin coverage-pr
+          
+          # Crie o Pull Request usando a ação 'peter-evans/create-pull-request'
+          uses: peter-evans/create-pull-request@v3
+          with:
+            token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+            commit-message: 'Auto PR for feat commit'
+            title: 'Auto Pull Request'
+            branch: master
+          
           # Imprima a URL do PR criado
-          echo "Pull Request URL: $(echo $response | jq -r .html_url)"
+          echo "Pull Request URL: ${{ steps.get_coverage.outputs.pr-url }}"
