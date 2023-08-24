@@ -21,8 +21,8 @@ jobs:
       - name: Get Coverage Percentage
         id: get_coverage
         run: |
-          # Obtenha a porcentagem de cobertura dos relatórios (ajuste o caminho conforme necessário)
-          coverage=$(cat target/site/jacoco/index.html | grep -oP 'Total[^>]*>\K\d+')
+          # Extrair a cobertura do arquivo jacoco.xml
+          coverage=$(xmllint --xpath "string(//counter[@type='INSTRUCTION']/@covered)" target/site/jacoco/jacoco.xml)
           echo "Coverage: $coverage%"
 
       - name: Create PR if coverage is high
