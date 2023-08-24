@@ -14,12 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.mail.internet.InternetAddress;
 import java.util.Optional;
 
 
-@Component
+@Service
 public class UsuarioUseCase implements IUsuarioUseCase {
 
 
