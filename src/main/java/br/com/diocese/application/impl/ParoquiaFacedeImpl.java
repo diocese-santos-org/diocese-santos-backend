@@ -1,6 +1,7 @@
 package br.com.diocese.application.impl;
 
 import br.com.diocese.application.ParoquiaFacede;
+import br.com.diocese.domain.entity.Endereco;
 import br.com.diocese.interfaces.rest.dto.ParoquiasPertoDto;
 import br.com.diocese.domain.entity.Paroquia;
 import br.com.diocese.infrastructure.repository.EnderecoRepository;
@@ -30,6 +31,8 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
 
     public ResponseEntity retornarParoquias(double latMobile, double longMobile) {
 
+        //cadastrarParoquias();
+
         SortedMap<Double, Paroquia> nearbyObjects = new TreeMap<>();
         List<ParoquiasPertoDto> nearbyObjectsList = new ArrayList<>();
 
@@ -56,7 +59,7 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
         return ResponseEntity.ok(nearbyObjectsList);
     }
 
-    /*private void cadastrarParoquias() {
+    private void cadastrarParoquias() {
 
         var paroquia = new Paroquia();
         var paroquia1 = new Paroquia();
@@ -64,7 +67,6 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
 
 
         var endereco = new Endereco();
-        endereco.set
         endereco.setLatitude(-23.947322);
         endereco.setLongitude(-46.391601);
 
@@ -91,5 +93,5 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
         paroquiaRepository.save(paroquia2);
 
 
-    }*/
+    }
 }
