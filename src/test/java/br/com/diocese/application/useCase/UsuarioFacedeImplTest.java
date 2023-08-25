@@ -1,5 +1,6 @@
 package br.com.diocese.application.useCase;
 
+import br.com.diocese.application.impl.UsuarioFacedeImpl;
 import br.com.diocese.infrastructure.config.security.TokenService;
 import br.com.diocese.infrastructure.repository.UsuarioRepository;
 import org.junit.Test;
@@ -16,10 +17,10 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
-public class UsuarioUseCaseTest {
+public class UsuarioFacedeImplTest {
 
     @InjectMocks
-    UsuarioUseCase usuarioUseCase;
+    UsuarioFacedeImpl usuarioFacedeImpl;
 
     @Mock
     TokenService tokenService;
@@ -33,7 +34,7 @@ public class UsuarioUseCaseTest {
         when(usuarioRepository.getById(any())).thenReturn(retornaUsuario());
         when(tokenService.recuperarToken(anyString())).thenReturn(TOKEN_TRATADO);
 
-        var response = usuarioUseCase.obterUsuario(BEARER_TOKEN);
+        var response = usuarioFacedeImpl.obterUsuario(BEARER_TOKEN);
 
         Assertions.assertNotEquals("", response.getBody());
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());

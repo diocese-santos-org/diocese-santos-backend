@@ -1,7 +1,7 @@
 package br.com.diocese.infrastructure.config.security;
 
 
-import br.com.diocese.domain.model.Usuario;
+import br.com.diocese.domain.entity.Usuario;
 import br.com.diocese.infrastructure.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

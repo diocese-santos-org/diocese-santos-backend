@@ -1,7 +1,7 @@
-package br.com.diocese.application.controller;
+package br.com.diocese.interfaces.rest.controller;
 
-import br.com.diocese.application.controller.dto.TokenDto;
-import br.com.diocese.application.controller.form.LoginForm;
+import br.com.diocese.interfaces.rest.dto.TokenDto;
+import br.com.diocese.interfaces.rest.form.LoginForm;
 import br.com.diocese.domain.contract.controller.IAutenticacaoController;
 import br.com.diocese.infrastructure.config.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;

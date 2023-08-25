@@ -1,6 +1,6 @@
-package br.com.diocese.application.controller.dto;
+package br.com.diocese.interfaces.rest.dto;
 
-import br.com.diocese.domain.model.Paroquia;
+import br.com.diocese.domain.entity.Paroquia;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

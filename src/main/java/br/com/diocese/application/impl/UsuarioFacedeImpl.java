@@ -1,33 +1,34 @@
-package br.com.diocese.application.useCase;
+package br.com.diocese.application.impl;
 
 
-import br.com.diocese.application.controller.dto.UsuarioDto;
-import br.com.diocese.application.controller.form.UsuarioForm;
-import br.com.diocese.domain.contract.useCase.IUsuarioUseCase;
-import br.com.diocese.domain.model.Usuario;
+import br.com.diocese.application.UsuarioFacede;
+import br.com.diocese.domain.entity.Usuario;
+import br.com.diocese.domain.mapper.UsuarioMapper;
 import br.com.diocese.infrastructure.config.security.TokenService;
 import br.com.diocese.infrastructure.repository.UsuarioRepository;
+import br.com.diocese.interfaces.rest.dto.UsuarioDto;
+import br.com.diocese.interfaces.rest.form.UsuarioForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import javax.mail.internet.InternetAddress;
 import java.util.Optional;
+
+import static br.com.diocese.infrastructure.utils.EmailValidator.validandoEmail;
 
 
 @Service
-public class UsuarioUseCase implements IUsuarioUseCase {
-
-
-    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+public class UsuarioFacedeImpl implements UsuarioFacede {
 
     @Autowired
     UsuarioRepository usuarioRepository;
+
+    @Autowired
+    UsuarioMapper usuarioMapper;
 
     @Autowired
     TokenService tokenService;
@@ -44,7 +45,7 @@ public class UsuarioUseCase implements IUsuarioUseCase {
             if (!validandoEmail(usuarioForm.getEmail()))
                 return new ResponseEntity<>("Formato do email invalido", HttpStatus.BAD_REQUEST);
 
-            var usuario = transformarUsuarioForm(usuarioForm);
+            var usuario = usuarioMapper.formToEntity(usuarioForm);
 
             usuarioRepository.save(usuario);
 
@@ -77,11 +78,6 @@ public class UsuarioUseCase implements IUsuarioUseCase {
         } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    private Long obterIdUsuario(String tokenBearer) {
-        String token = tokenService.recuperarToken(tokenBearer);
-        return tokenService.getIdUsuario(token);
-    }
-
     private Usuario usuarioToken(String token) {
         token = tokenService.recuperarToken(token);
         return usuarioRepository.getById(tokenService.getIdUsuario(token));
@@ -91,31 +87,4 @@ public class UsuarioUseCase implements IUsuarioUseCase {
         return usuarioToken(token);
     }
 
-    private boolean validandoEmail(String email) {
-        boolean result = true;
-        try {
-            InternetAddress emailAddr = new InternetAddress(email);
-            emailAddr.validate();
-        } catch (Exception e) {
-            result = false;
-        }
-        return result;
-    }
-
-    private Usuario transformarUsuarioForm(UsuarioForm usuarioForm) throws Exception {
-
-        Usuario usuario = new Usuario();
-        usuario.setNome(usuarioForm.getNome());
-
-        usuario.setEmail(usuarioForm.getEmail().toLowerCase());
-
-        usuario.setSenha(passwordEncoder.encode(usuarioForm.getSenha()));
-
-        usuario.setCpf(usuarioForm.getCpf());
-
-        usuario.setTelefone(usuarioForm.getTelefone());
-
-        return usuario;
-
-    }
 }

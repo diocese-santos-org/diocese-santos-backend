@@ -1,4 +1,4 @@
-package br.com.diocese.domain.model;
+package br.com.diocese.domain.entity;
 
 import lombok.Data;
 
@@ -9,17 +9,16 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Missa {
+public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String segunda;
-    private String terca;
-    private String quarta;
-    private String quinta;
-    private String sexta;
-    private String sabado;
-    private String domingo;
+    private String enderecoCompleto;
+    private String cidade;
+    private String estado;
+    private String cep;
+    private double latitude;
+    private double longitude;
 
 }

@@ -1,6 +1,6 @@
 package br.com.diocese.utils;
 
-import br.com.diocese.domain.model.Usuario;
+import br.com.diocese.domain.entity.Usuario;
 
 public class Utils {
 

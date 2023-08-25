@@ -1,6 +1,6 @@
 package br.com.diocese.infrastructure.config.security;
 
-import br.com.diocese.domain.model.Usuario;
+import br.com.diocese.domain.entity.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

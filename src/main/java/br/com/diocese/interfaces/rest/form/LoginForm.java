@@ -1,4 +1,4 @@
-package br.com.diocese.application.controller.form;
+package br.com.diocese.interfaces.rest.form;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 

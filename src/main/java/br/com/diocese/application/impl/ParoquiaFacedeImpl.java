@@ -1,7 +1,8 @@
-package br.com.diocese.application.useCase;
+package br.com.diocese.application.impl;
 
-import br.com.diocese.application.controller.dto.ParoquiasPertoDto;
-import br.com.diocese.domain.model.Paroquia;
+import br.com.diocese.application.ParoquiaFacede;
+import br.com.diocese.interfaces.rest.dto.ParoquiasPertoDto;
+import br.com.diocese.domain.entity.Paroquia;
 import br.com.diocese.infrastructure.repository.EnderecoRepository;
 import br.com.diocese.infrastructure.repository.ParoquiaRepository;
 import br.com.diocese.infrastructure.utils.GeolocalizacaoUtils;
@@ -15,7 +16,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 @Service
-public class ParoquiaUseCase {
+public class ParoquiaFacedeImpl implements ParoquiaFacede {
 
     //-23.938525, -46.418176, -23.955622, -46.415700 1.9km
 

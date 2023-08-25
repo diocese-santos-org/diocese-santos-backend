@@ -1,4 +1,4 @@
-package br.com.diocese.application.controller.dto;
+package br.com.diocese.interfaces.rest.dto;
 
 public class TokenDto {
 

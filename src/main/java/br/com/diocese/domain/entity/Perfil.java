@@ -1,4 +1,4 @@
-package br.com.diocese.domain.model;
+package br.com.diocese.domain.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 
