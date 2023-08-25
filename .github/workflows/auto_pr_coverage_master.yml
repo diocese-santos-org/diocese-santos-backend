@@ -15,7 +15,7 @@ jobs:
 
       - name: Build and Test
         run: |
-          mvn clean test
+          mvn clean test -Dmaven.compiler.argument=-proc:none
           mvn jacoco:report
 
       - name: Generate JaCoCo Badge
