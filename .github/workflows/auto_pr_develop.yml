@@ -14,11 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'  # Escolha a versão do JDK que você deseja usar
-
       - name: Build with Maven
         run: mvn clean compile -Dmaven.compiler.argument=-proc:none  # Adicione a flag -Dmaven.compiler.argument=-proc:none
 
