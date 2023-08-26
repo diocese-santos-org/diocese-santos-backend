@@ -6,7 +6,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Paroquia {
 
     @Id
@@ -28,7 +32,9 @@ public class Paroquia {
     private RedesSociais redesSociais;
 
     @ManyToMany
-    private List<Clero> cleros;
-
-
+    @JoinTable(
+            name = "paroquias_cleros",
+            joinColumns = @JoinColumn(name = "paroquia_id"),
+            inverseJoinColumns = @JoinColumn(name = "clero_id")
+    )    private List<Clero> cleros;
 }

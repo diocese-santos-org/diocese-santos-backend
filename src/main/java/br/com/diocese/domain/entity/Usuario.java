@@ -1,6 +1,7 @@
 package br.com.diocese.domain.entity;
 
 
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,6 +12,11 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Usuario implements UserDetails, Serializable {
 
     @Id

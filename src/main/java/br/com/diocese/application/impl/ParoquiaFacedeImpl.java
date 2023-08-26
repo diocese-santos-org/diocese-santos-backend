@@ -7,14 +7,14 @@ import br.com.diocese.domain.entity.Paroquia;
 import br.com.diocese.infrastructure.repository.EnderecoRepository;
 import br.com.diocese.infrastructure.repository.ParoquiaRepository;
 import br.com.diocese.infrastructure.utils.GeolocalizacaoUtils;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 @Service
 public class ParoquiaFacedeImpl implements ParoquiaFacede {
@@ -45,53 +45,15 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
 
             nearbyObjects.put(distance, paroquia);
 
+        }
 
-            int count = 0;
-            for (Paroquia paroquiasNerby : nearbyObjects.values()) {
-                if (count >= 5) {
-                    break;
-                }
-                nearbyObjectsList.add(new ParoquiasPertoDto(paroquiasNerby, distance));
-                count++;
-            }
+        for (Map.Entry<Double, Paroquia> entry : nearbyObjects.entrySet()){
+
+            nearbyObjectsList.add(new ParoquiasPertoDto(entry.getValue(), entry.getKey()));
+
         }
 
         return ResponseEntity.ok(nearbyObjectsList);
     }
 
-    private void cadastrarParoquias() {
-
-        var paroquia = new Paroquia();
-        var paroquia1 = new Paroquia();
-        var paroquia2 = new Paroquia();
-
-
-        var endereco = new Endereco();
-        endereco.setLatitude(-23.947322);
-        endereco.setLongitude(-46.391601);
-
-        var endereco1 = new Endereco();
-        endereco1.setLatitude(-23.966237);
-        endereco1.setLongitude(-46.409226);
-
-        var endereco2 = new Endereco();
-        endereco2.setLatitude(-23.995436);
-        endereco2.setLongitude(-46.419153);
-
-        enderecoRepository.save(endereco);
-        enderecoRepository.save(endereco1);
-        enderecoRepository.save(endereco2);
-
-        var listaEndereco = enderecoRepository.findAll();
-
-        paroquia.setEndereco(listaEndereco.get(0));
-        paroquia1.setEndereco(listaEndereco.get(1));
-        paroquia2.setEndereco(listaEndereco.get(2));
-
-        paroquiaRepository.save(paroquia);
-        paroquiaRepository.save(paroquia1);
-        paroquiaRepository.save(paroquia2);
-
-
-    }
 }

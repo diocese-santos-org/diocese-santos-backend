@@ -1,11 +1,17 @@
 package br.com.diocese.domain.entity;
 
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Perfil implements GrantedAuthority {
 
     @Id
