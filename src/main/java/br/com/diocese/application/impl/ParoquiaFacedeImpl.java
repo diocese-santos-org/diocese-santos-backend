@@ -42,17 +42,11 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
             double distance = GeolocalizacaoUtils.calcularDistancia(
                     latMobile, longMobile, paroquia.getEndereco().getLatitude(), paroquia.getEndereco().getLongitude());
 
-
             nearbyObjects.put(distance, paroquia);
-
         }
-
         for (Map.Entry<Double, Paroquia> entry : nearbyObjects.entrySet()){
-
             nearbyObjectsList.add(new ParoquiasPertoDto(entry.getValue(), entry.getKey()));
-
         }
-
         return ResponseEntity.ok(nearbyObjectsList);
     }
 

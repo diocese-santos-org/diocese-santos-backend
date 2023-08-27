@@ -12,7 +12,7 @@ O Backend é a parte do projeto responsável por processar as coordenadas de geo
 ## Pré requisitos
 Necessita ter Java 11, Docker, Maven.
 
-## Instalação e Execução
+## Execução local subindo o banco
 
 1. Clone este repositório para o seu ambiente de desenvolvimento.
 
@@ -25,17 +25,17 @@ git clone https://github.com/LeoRBlume/diocese-santos-backend.git
 cd nome_do_diretório 
 ```
 
-3. Levantar o banco de dados
+3. Navegue até o diretório do docker-compose do banco:
+
 ```bash
-cd docker
-docker-compose up
+cd banco-local 
+docker-compose -f docker-compose-banco.yml up
 ```
 
-3. Levantar a aplicação
+4. Levantar a aplicação
 ```bash
 ./mvnw spring-boot:run
 ```
-
 
 ## Uso
 
