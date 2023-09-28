@@ -21,13 +21,8 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
 
     //-23.938525, -46.418176, -23.955622, -46.415700 1.9km
 
-    private static final double EARTH_RADIUS_KM = 6371.0;
-
     @Autowired
     private ParoquiaRepository paroquiaRepository;
-
-    @Autowired
-    private EnderecoRepository enderecoRepository;
 
     public ResponseEntity retornarParoquias(double latMobile, double longMobile) {
 

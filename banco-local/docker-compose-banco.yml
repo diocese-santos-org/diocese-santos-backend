@@ -1,13 +1,14 @@
-version: '3.1'
+version: '3.8'
 
 services:
   db:
-    image: mysql
+    image: mysql:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
       MYSQL_CHARSET: utf8mb4
       MYSQL_COLLATION: utf8mb4_unicode_ci
+      LANG: C.UTF-8
     ports:
       - "3306:3306"
     volumes:

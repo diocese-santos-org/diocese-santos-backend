@@ -1,6 +1,9 @@
 DROP DATABASE IF EXISTS dioceseSantos;
 
-CREATE DATABASE dioceseSantos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE dioceseSantos;
+
+ALTER DATABASE dioceseSantos DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 
 use dioceseSantos;
 
@@ -10,7 +13,7 @@ create table clero
         primary key,
     nome     varchar(255) null,
     url_site varchar(255) null
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table endereco
 (
@@ -22,7 +25,8 @@ create table endereco
     estado            varchar(255) null,
     latitude          double       not null,
     longitude         double       not null
-);
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 create table missa
 (
@@ -35,14 +39,16 @@ create table missa
     segunda varchar(255) null,
     sexta   varchar(255) null,
     terca   varchar(255) null
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 create table perfil
 (
     id   bigint auto_increment
         primary key,
     nome varchar(255) null
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 create table redes_sociais
 (
@@ -51,7 +57,8 @@ create table redes_sociais
     facebook  varchar(255) null,
     instagram varchar(255) null,
     youtube   varchar(255) null
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 create table paroquia
 (
@@ -71,7 +78,8 @@ create table paroquia
         foreign key (redes_sociais_id) references redes_sociais (id),
     constraint FKllprmoy5n2nqdvhwjvribm3na
         foreign key (endereco_id) references endereco (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 create table paroquias_cleros
 (
@@ -81,7 +89,8 @@ create table paroquias_cleros
         foreign key (paroquia_id) references paroquia (id),
     constraint FKpb59l8wi5rji2ueaqbnrk650d
         foreign key (clero_id) references clero (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 create table usuario
 (
@@ -96,7 +105,8 @@ create table usuario
         unique (email),
     constraint UK_692bsnqxa8m9fmx7m1yc6hsui
         unique (cpf)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 create table usuario_perfis
 (
@@ -106,7 +116,8 @@ create table usuario_perfis
         foreign key (perfis_id) references perfil (id),
     constraint FKs91tgiyagbilt959wbufiphgc
         foreign key (usuario_id) references usuario (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 use dioceseSantos;
 

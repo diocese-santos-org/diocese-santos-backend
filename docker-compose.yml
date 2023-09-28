@@ -1,9 +1,0 @@
-version: '3'
-services:
-  app:
-    image: openjdk:11-jre-slim
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./app:/app
-    command: ["java", "-jar", "/app/your-spring-boot-app.jar"]
