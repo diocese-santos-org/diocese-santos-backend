@@ -6,42 +6,63 @@ on:
       - develop
 
 jobs:
-  auto_pr_develop:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build and Test
-        run: |
-          mvn clean test -Dmaven.compiler.argument=-proc:none
-          mvn jacoco:report
+      - name: Build with Maven
+        run: mvn clean compile -Dmaven.compiler.argument=-proc:none  # Adicione a flag -Dmaven.compiler.argument=-proc:none
 
-      - name: Generate JaCoCo Badge
-        id: jacoco
-        uses: cicirello/jacoco-badge-generator@v2.0.1
+      - name: Create PR if commit starts with feat
+        if: startsWith(github.event.head_commit.message, 'feat:')
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          commit-message: 'Auto PR for feat commit'
+          title: 'Auto Pull Request'
+          branch: main
 
-      - name: Log coverage percentage
-        run: |
-          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
-          echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
 
-      - name: Check Coverage and Create PR if > 70
-        run: |
-          if [ "$coverage" -gt "70" ]; then
-            echo "Pode passar!"
-          
-            # Crie o Pull Request usando a ação 'peter-evans/create-pull-request'
-            - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v3
-              with:
-                token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-                commit-message: 'Auto PR for high coverage'
-                title: 'Auto Pull Request for High Coverage'
-                body: 'This PR was automatically created due to high test coverage.'
-                branch: master
-
-          else
-            echo "Não pode passar!"
-          fi
+#jobs:
+#  auto_pr_develop:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Build and Test
+#        run: |
+#          mvn clean test -Dmaven.compiler.argument=-proc:none
+#          mvn jacoco:report
+#
+#      - name: Generate JaCoCo Badge
+#        id: jacoco
+#        uses: cicirello/jacoco-badge-generator@v2.0.1
+#
+#      - name: Log coverage percentage
+#        run: |
+#          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+#          echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+#
+#      - name: Check Coverage and Create PR if > 70
+#        run: |
+#          if [ "$coverage" -gt "70" ]; then
+#            echo "Pode passar!"
+#
+#            # Crie o Pull Request usando a ação 'peter-evans/create-pull-request'
+#            - name: Create Pull Request
+#              uses: peter-evans/create-pull-request@v3
+#              with:
+#                token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+#                commit-message: 'Auto PR for high coverage'
+#                title: 'Auto Pull Request for High Coverage'
+#                body: 'This PR was automatically created due to high test coverage.'
+#                branch: master
+#
+#          else
+#            echo "Não pode passar!"
+#          fi

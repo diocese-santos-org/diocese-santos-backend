@@ -25,11 +25,10 @@ git clone https://github.com/LeoRBlume/diocese-santos-backend.git
 cd nome_do_diretório 
 ```
 
-3. Navegue até o diretório do docker-compose do banco:
+3. Execute o script .sh:
 
 ```bash
-cd banco-local 
-docker-compose -f docker-compose-banco.yml up
+   sh script-banco.sh
 ```
 
 4. Levantar a aplicação

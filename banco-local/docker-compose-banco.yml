@@ -4,6 +4,7 @@ services:
   db:
     image: mysql:latest
     restart: always
+    container_name: mysql_diocese
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
       MYSQL_CHARSET: utf8mb4
