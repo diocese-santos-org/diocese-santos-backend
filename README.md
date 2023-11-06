@@ -42,7 +42,13 @@ O backend estará acessível em: `http://localhost:8080`.
 
 
 
-Utilize o endpoint `/paroquia` com um método GET para enviar as coordenadas de geolocalização passando por Query param latitude e longitude
+Utilize o endpoint `/paroquias/geo` com um método GET para enviar as coordenadas de geolocalização passando por Query param latitude e longitude
+
+Token para acessar recursos protegidos:
+
+```bash
+eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgRW1wcmVzYSBEZXNhZmlvIiwic3ViIjoiZGlvY2VzZXNhbnRvcyIsImlhdCI6MTY5OTIzMjQyMywiZXhwIjoxNzAxMDU5ODEwfQ.dSM04FHQGFIKaN8TDh_Zy9TBtnK-BRAvb_ry5toV2u4
+ ```
 
 O backend processará as coordenadas e retornará informações sobre as igrejas mais próximas que e os horarios das missas.
 
@@ -50,8 +56,8 @@ Exemplo de uso com cURL:
 
 ```bash
 curl --request GET \
-  --url 'http://localhost:8080/paroquia?latitude=-23.938525&longitude=-46.418176' \
-  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
+  --url 'http://localhost:8080/paroquias/geo?latitude=-23.938525&longitude=-46.418176' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgRW1wcmVzYSBEZXNhZmlvIiwic3ViIjoiZGlvY2VzZXNhbnRvcyIsImlhdCI6MTY5OTIzMjQyMywiZXhwIjoxNzAxMDU5ODEwfQ.dSM04FHQGFIKaN8TDh_Zy9TBtnK-BRAvb_ry5toV2u4' \
  ```
 
 

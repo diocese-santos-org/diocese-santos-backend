@@ -24,10 +24,7 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
     @Autowired
     private ParoquiaRepository paroquiaRepository;
 
-    public ResponseEntity retornarParoquias(double latMobile, double longMobile) {
-
-        //cadastrarParoquias();
-
+    public ResponseEntity<List<ParoquiasPertoDto>> obterParoquiasGeoLocalizacao(double latMobile, double longMobile) {
         SortedMap<Double, Paroquia> nearbyObjects = new TreeMap<>();
         List<ParoquiasPertoDto> nearbyObjectsList = new ArrayList<>();
 
@@ -43,6 +40,23 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
             nearbyObjectsList.add(new ParoquiasPertoDto(entry.getValue(), entry.getKey()));
         }
         return ResponseEntity.ok(nearbyObjectsList);
+    }
+
+    @Override
+    public ResponseEntity obterParoquiaPorId(String paroquiaId) {
+       var paroquia = paroquiaRepository.findById(Long.valueOf(paroquiaId));
+
+       if(paroquia.isPresent()) {
+           return ResponseEntity.ok(paroquia.get());
+       }
+       return ResponseEntity.notFound().build();
+
+    }
+
+    @Override
+    public ResponseEntity obterParoquias() {
+        var paroquias = paroquiaRepository.findAll();
+        return ResponseEntity.ok(paroquias);
     }
 
 }

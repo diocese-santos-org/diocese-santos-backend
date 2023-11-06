@@ -1,22 +1,47 @@
 package br.com.diocese.interfaces.rest.controller;
 
 import br.com.diocese.application.impl.ParoquiaFacedeImpl;
+import br.com.diocese.infrastructure.config.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/paroquia")
+@RequestMapping("/paroquias")
 public class ParoquiaController {
 
     @Autowired
     ParoquiaFacedeImpl paroquiaFacedeImpl;
 
+    @Autowired
+    private TokenService tokenService;
+
+    @GetMapping("/geo")
+    public ResponseEntity obterParoquiasGeoLocalizacao(@RequestHeader("Authorization") String token, double latitude, double longitude) {
+
+        if(tokenService.isTokenValido(token)){
+            return paroquiaFacedeImpl.obterParoquiasGeoLocalizacao(latitude, longitude);
+        }
+        return ResponseEntity.status(401).body("Acesso não autorizado");
+    }
+
     @GetMapping
-    public ResponseEntity<?> obterParoquiasPerto(double latitude, double longitude) {
-        return paroquiaFacedeImpl.retornarParoquias(latitude, longitude);
+    public ResponseEntity obterTodasParoquias(@RequestHeader("Authorization") String token) {
+
+        if(tokenService.isTokenValido(token)){
+            return paroquiaFacedeImpl.obterParoquias();
+        }
+        return ResponseEntity.status(401).body("Acesso não autorizado");
+    }
+
+    @GetMapping("/paroquiaId")
+    public ResponseEntity obterParoquiaPorId(@RequestHeader("Authorization") String token, @PathVariable String paroquiaId) {
+
+        if(tokenService.isTokenValido(token)){
+            return paroquiaFacedeImpl.obterParoquiaPorId(paroquiaId);
+        }
+        return ResponseEntity.status(401).body("Acesso não autorizado");
     }
 
 }
