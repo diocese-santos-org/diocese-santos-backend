@@ -32,5 +32,6 @@ public class Paroquia {
             name = "paroquias_cleros",
             joinColumns = @JoinColumn(name = "paroquia_id"),
             inverseJoinColumns = @JoinColumn(name = "clero_id")
-    )    private List<Clero> cleros;
+    )
+    private List<Clero> cleros;
 }

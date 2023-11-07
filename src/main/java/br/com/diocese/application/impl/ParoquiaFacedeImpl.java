@@ -1,15 +1,10 @@
 package br.com.diocese.application.impl;
 
 import br.com.diocese.application.ParoquiaFacede;
-import br.com.diocese.domain.entity.Endereco;
-import br.com.diocese.interfaces.rest.dto.ParoquiasPertoDto;
 import br.com.diocese.domain.entity.Paroquia;
-import br.com.diocese.infrastructure.repository.EnderecoRepository;
 import br.com.diocese.infrastructure.repository.ParoquiaRepository;
 import br.com.diocese.infrastructure.utils.GeolocalizacaoUtils;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import br.com.diocese.interfaces.rest.dto.ParoquiasPertoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,6 +19,27 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
     @Autowired
     private ParoquiaRepository paroquiaRepository;
 
+    @Override
+    public ResponseEntity obterParoquias() {
+        var paroquias = paroquiaRepository.findAll();
+
+        if (paroquias.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(paroquias);
+    }
+
+    @Override
+    public ResponseEntity obterParoquiaPorId(Long idParoquia) {
+        var paroquia = paroquiaRepository.findById(idParoquia);
+
+        if (paroquia.isPresent()) {
+            return ResponseEntity.ok(paroquia.get());
+        }
+        return ResponseEntity.noContent().build();
+
+    }
+
     public ResponseEntity<List<ParoquiasPertoDto>> obterParoquiasGeoLocalizacao(double latMobile, double longMobile) {
         SortedMap<Double, Paroquia> nearbyObjects = new TreeMap<>();
         List<ParoquiasPertoDto> nearbyObjectsList = new ArrayList<>();
@@ -36,27 +52,10 @@ public class ParoquiaFacedeImpl implements ParoquiaFacede {
 
             nearbyObjects.put(distance, paroquia);
         }
-        for (Map.Entry<Double, Paroquia> entry : nearbyObjects.entrySet()){
+        for (Map.Entry<Double, Paroquia> entry : nearbyObjects.entrySet()) {
             nearbyObjectsList.add(new ParoquiasPertoDto(entry.getValue(), entry.getKey()));
         }
         return ResponseEntity.ok(nearbyObjectsList);
-    }
-
-    @Override
-    public ResponseEntity obterParoquiaPorId(String paroquiaId) {
-       var paroquia = paroquiaRepository.findById(Long.valueOf(paroquiaId));
-
-       if(paroquia.isPresent()) {
-           return ResponseEntity.ok(paroquia.get());
-       }
-       return ResponseEntity.notFound().build();
-
-    }
-
-    @Override
-    public ResponseEntity obterParoquias() {
-        var paroquias = paroquiaRepository.findAll();
-        return ResponseEntity.ok(paroquias);
     }
 
 }

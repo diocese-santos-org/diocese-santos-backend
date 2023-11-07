@@ -34,11 +34,11 @@ public class ParoquiaController {
         return ResponseEntity.status(401).body("Acesso não autorizado");
     }
 
-    @GetMapping("/{paroquiaId}")
-    public ResponseEntity obterParoquiaPorId(@RequestHeader("Authorization") String token, @PathVariable String paroquiaId) {
+    @GetMapping("/{idParoquia}")
+    public ResponseEntity obterParoquiaPorId(@RequestHeader("Authorization") String token, @PathVariable Long idParoquia) {
 
         if (tokenService.isTokenValido(token)) {
-            return paroquiaFacedeImpl.obterParoquiaPorId(paroquiaId);
+            return paroquiaFacedeImpl.obterParoquiaPorId(idParoquia);
         }
         return ResponseEntity.status(401).body("Acesso não autorizado");
     }

@@ -16,10 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private TokenService tokenService;
-
-
     @Override
     @Bean
     protected AuthenticationManager authenticationManager() throws Exception {

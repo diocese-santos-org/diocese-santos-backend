@@ -6,6 +6,7 @@ public interface ParoquiaFacede {
 
     ResponseEntity obterParoquiasGeoLocalizacao(double latMobile, double longMobile);
 
-    ResponseEntity obterParoquiaPorId(String paroquiaId);
+    ResponseEntity obterParoquiaPorId(Long idParoquia);
+
     ResponseEntity obterParoquias();
 }
