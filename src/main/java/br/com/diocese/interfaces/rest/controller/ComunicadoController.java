@@ -36,7 +36,7 @@ public class ComunicadoController {
     }
 
     @PostMapping
-    public ResponseEntity obterComunicadoPorId(@RequestHeader("Authorization") String token, @RequestBody ComunicadoForm comunicadoForm) {
+    public ResponseEntity cadastrarComunicado(@RequestHeader("Authorization") String token, @RequestBody ComunicadoForm comunicadoForm) {
 
         if (tokenService.isTokenValido(token)) {
             return comunicadoFacede.cadastrarComunicado(comunicadoForm);
