@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ComunicadosFacedeImpl implements ComunicadoFacede {
+public class ComunicadoFacedeImpl implements ComunicadoFacede {
 
     @Autowired
     ComunicadoRepository comunicadoRepository;
@@ -33,12 +33,12 @@ public class ComunicadosFacedeImpl implements ComunicadoFacede {
     @Override
     public ResponseEntity obterComunicadoPorId(Long idComunicado) {
         try {
-            var comunicados = comunicadoRepository.findById(idComunicado);
+            var comunicado = comunicadoRepository.findById(idComunicado);
 
-            if (comunicados.isEmpty()) {
+            if (comunicado.isEmpty()) {
                 return ResponseEntity.noContent().build();
             }
-            return ResponseEntity.ok(comunicados);
+            return ResponseEntity.ok(comunicado);
 
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

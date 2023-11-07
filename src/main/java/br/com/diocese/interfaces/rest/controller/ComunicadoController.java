@@ -1,6 +1,6 @@
 package br.com.diocese.interfaces.rest.controller;
 
-import br.com.diocese.application.impl.ComunicadosFacedeImpl;
+import br.com.diocese.application.impl.ComunicadoFacedeImpl;
 import br.com.diocese.infrastructure.config.security.TokenService;
 import br.com.diocese.interfaces.rest.form.ComunicadoForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class ComunicadoController {
 
     @Autowired
-    ComunicadosFacedeImpl comunicadoFacede;
+    ComunicadoFacedeImpl comunicadoFacede;
 
     @Autowired
     TokenService tokenService;
