@@ -18,7 +18,7 @@ public class EventoFacedeImpl implements EventoFacede {
     @Override
     public ResponseEntity obterEventos() {
         try {
-            var eventos = eventoRepository.findAllOrderByDataDesc();
+            var eventos = eventoRepository.findAllByOrderByDataDesc();
 
             if (eventos.isEmpty()) {
                 return ResponseEntity.noContent().build();

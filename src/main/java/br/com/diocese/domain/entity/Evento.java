@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 @NoArgsConstructor
@@ -24,12 +26,16 @@ public class Evento {
     private Date data;
     private String local;
 
-    public static Evento formToModel(EventoForm eventoForm) {
+    public static Evento formToModel(EventoForm eventoForm) throws ParseException {
         Evento evento = new Evento();
         evento.setTitulo(eventoForm.getTitulo());
         evento.setDescricao(eventoForm.getDescricao());
         evento.setHorario(eventoForm.getHorario());
-        evento.setData(eventoForm.getData());
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // Defina o formato de data apropriado
+        Date data = dateFormat.parse(eventoForm.getData());
+        evento.setData(data);
+
         evento.setLocal(eventoForm.getLocal());
         return evento;
     }
