@@ -4,8 +4,15 @@ CREATE DATABASE dioceseSantos;
 
 ALTER DATABASE dioceseSantos DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-
 use dioceseSantos;
+
+create table clero
+(
+    id       bigint auto_increment
+        primary key,
+    nome     varchar(255) null,
+    url_site varchar(255) null
+);
 
 create table comunicado
 (
@@ -15,14 +22,13 @@ create table comunicado
     titulo    varchar(255) null
 );
 
-
-create table clero
+create table comunicados
 (
-    id       bigint auto_increment
+    id        bigint auto_increment
         primary key,
-    nome     varchar(255) null,
-    url_site varchar(255) null
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    descricao varchar(255) null,
+    titulo    varchar(255) null
+);
 
 create table endereco
 (
@@ -34,8 +40,18 @@ create table endereco
     estado            varchar(255) null,
     latitude          double       not null,
     longitude         double       not null
-)  ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
+create table evento
+(
+    id        bigint auto_increment
+        primary key,
+    data      date         null,
+    descricao varchar(255) null,
+    horario   varchar(255) null,
+    local     varchar(255) null,
+    titulo    varchar(255) null
+);
 
 create table missa
 (
@@ -48,16 +64,7 @@ create table missa
     segunda varchar(255) null,
     sexta   varchar(255) null,
     terca   varchar(255) null
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-create table perfil
-(
-    id   bigint auto_increment
-        primary key,
-    nome varchar(255) null
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+);
 
 create table redes_sociais
 (
@@ -66,8 +73,7 @@ create table redes_sociais
     facebook  varchar(255) null,
     instagram varchar(255) null,
     youtube   varchar(255) null
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+);
 
 create table paroquia
 (
@@ -87,8 +93,7 @@ create table paroquia
         foreign key (redes_sociais_id) references redes_sociais (id),
     constraint FKllprmoy5n2nqdvhwjvribm3na
         foreign key (endereco_id) references endereco (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+);
 
 create table paroquias_cleros
 (
@@ -98,34 +103,7 @@ create table paroquias_cleros
         foreign key (paroquia_id) references paroquia (id),
     constraint FKpb59l8wi5rji2ueaqbnrk650d
         foreign key (clero_id) references clero (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-create table usuario
-(
-    id       bigint auto_increment
-        primary key,
-    cpf      varchar(255) null,
-    email    varchar(255) null,
-    nome     varchar(255) null,
-    senha    varchar(255) null,
-    telefone varchar(255) null,
-    constraint UK_5171l57faosmj8myawaucatdw
-        unique (email),
-    constraint UK_692bsnqxa8m9fmx7m1yc6hsui
-        unique (cpf)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-create table usuario_perfis
-(
-    usuario_id bigint not null,
-    perfis_id  bigint not null,
-    constraint FK7bhs80brgvo80vhme3u8m6ive
-        foreign key (perfis_id) references perfil (id),
-    constraint FKs91tgiyagbilt959wbufiphgc
-        foreign key (usuario_id) references usuario (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 
 use dioceseSantos;
@@ -181,3 +159,35 @@ INSERT INTO paroquias_cleros (clero_id, paroquia_id) VALUES ('9', '4');
 INSERT INTO paroquias_cleros (clero_id, paroquia_id) VALUES ('10', '4');
 INSERT INTO paroquias_cleros (clero_id, paroquia_id) VALUES ('11', '5');
 INSERT INTO paroquias_cleros (clero_id, paroquia_id) VALUES ('12', '5');
+
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-11-23', 'Descrição do evento 1', '14:00', 'Local do evento 1', 'Título do evento 1');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-11-25', 'Descrição do evento 2', '16:30', 'Local do evento 2', 'Título do evento 2');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-11-27', 'Descrição do evento 3', '10:00', 'Local do evento 3', 'Título do evento 3');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-11-30', 'Descrição do evento 4', '09:30', 'Local do evento 4', 'Título do evento 4');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-03', 'Descrição do evento 5', '13:45', 'Local do evento 5', 'Título do evento 5');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-05', 'Descrição do evento 6', '11:00', 'Local do evento 6', 'Título do evento 6');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-07', 'Descrição do evento 7', '15:20', 'Local do evento 7', 'Título do evento 7');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-10', 'Descrição do evento 8', '08:45', 'Local do evento 8', 'Título do evento 8');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-12', 'Descrição do evento 9', '12:00', 'Local do evento 9', 'Título do evento 9');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-15', 'Descrição do evento 10', '17:00', 'Local do evento 10', 'Título do evento 10');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-17', 'Descrição do evento 11', '09:30', 'Local do evento 11', 'Título do evento 11');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-20', 'Descrição do evento 12', '14:15', 'Local do evento 12', 'Título do evento 12');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-23', 'Descrição do evento 13', '11:45', 'Local do evento 13', 'Título do evento 13');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-25', 'Descrição do evento 14', '10:30', 'Local do evento 14', 'Título do evento 14');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-28', 'Descrição do evento 15', '16:45', 'Local do evento 15', 'Título do evento 15');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-31', 'Descrição do evento 16', '13:00', 'Local do evento 16', 'Título do evento 16');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-03', 'Descrição do evento 17', '09:00', 'Local do evento 17', 'Título do evento 17');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-05', 'Descrição do evento 18', '15:30', 'Local do evento 18', 'Título do evento 18');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-08', 'Descrição do evento 19', '12:45', 'Local do evento 19', 'Título do evento 19');
+INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-10', 'Descrição do evento 20', '10:15', 'Local do evento 20', 'Título do evento 20');
+
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 1', 'Título do comunicado 1');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 2', 'Título do comunicado 2');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 3', 'Título do comunicado 3');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 4', 'Título do comunicado 4');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 5', 'Título do comunicado 5');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 6', 'Título do comunicado 6');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 7', 'Título do comunicado 7');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 8', 'Título do comunicado 8');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 9', 'Título do comunicado 9');
+INSERT INTO comunicados (descricao, titulo) VALUES ('Descrição do comunicado 10', 'Título do comunicado 10');
