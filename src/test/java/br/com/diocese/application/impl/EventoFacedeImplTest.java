@@ -13,7 +13,7 @@ import utils.Utils;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
@@ -68,5 +68,26 @@ public class EventoFacedeImplTest {
 
     }
 
+    @Test
+    public void deleteEventoPorIdEsperando200() {
 
+        when(eventoRepository.existsById(1L)).thenReturn(true);
+        doNothing().when(eventoRepository).deleteById(1L);
+
+        var response = eventoFacede.deletarEventoPorId(1L);
+
+        Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
+
+    }
+
+    @Test
+    public void deleteEventoPorIdEsperando204() {
+
+        when(eventoRepository.existsById(1L)).thenReturn(false);
+
+        var response = eventoFacede.deletarEventoPorId(1L);
+
+        Assertions.assertEquals(response.getStatusCode(), HttpStatus.NOT_FOUND);
+
+    }
 }

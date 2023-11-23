@@ -2,6 +2,7 @@ package utils;
 
 import br.com.diocese.domain.entity.Comunicado;
 import br.com.diocese.domain.entity.Evento;
+import br.com.diocese.domain.entity.Paroquia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,20 @@ public class Utils {
 
         return lista;
 
+    }
+
+    public static Paroquia getParoquia() {
+        return new Paroquia(1L, null, null, null, null, null, null, null, null, null);
+    }
+
+    public static List<Paroquia> getListParoquias() {
+        var lista = new ArrayList<Paroquia>();
+
+        lista.add(getParoquia());
+        lista.add(getParoquia());
+        lista.add(getParoquia());
+
+        return lista;
     }
 
 }
