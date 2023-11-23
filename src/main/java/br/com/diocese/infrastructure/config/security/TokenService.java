@@ -1,53 +1,49 @@
 package br.com.diocese.infrastructure.config.security;
 
-import br.com.diocese.domain.entity.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 @Service
 public class TokenService {
-
-    @Value("${forum.jwt.expiration}")
-    private String expiration;
-
     @Value("${forum.jwt.secret}")
     private String secret;
 
-    public String gerarToken(Authentication authentication) {
+    @Value("${forum.jwt.subject}")
+    private String subject;
 
-        Usuario logado = (Usuario) authentication.getPrincipal();
-        Date hoje = new Date();
-        Date dataExpiracao = new Date(hoje.getTime() + Long.parseLong(expiration));
+    public String generateToken() {
+
+        // Define uma data de expiração distante (por exemplo, 10 anos no futuro)
+        Date expirationDate = new Date(System.currentTimeMillis() + 10 * 365 * 24 * 60 * 60 * 1000);
 
 
         return Jwts.builder()
                 .setIssuer("API Empresa Desafio")
-                .setSubject(logado.getId().toString())
-                .setIssuedAt(hoje)
-                .setExpiration(dataExpiracao)
+                .setSubject(subject)
+                .setIssuedAt(new Date())
+                .setExpiration(expirationDate)
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 
+
+
     public boolean isTokenValido(String token) {
         try{
-            Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token);
-            return true;
+            String tokenExtraido = recuperarToken(token);
+            if(getSubject(tokenExtraido).equals(subject))
+                return true;
+
+            return false;
         }
         catch (Exception e){
             return false;
         }
-    }
-
-    public Long getIdUsuario(String token) {
-        Claims claims = Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody();
-        return Long.parseLong(claims.getSubject());
     }
 
     public String recuperarToken(String token) {
@@ -57,4 +53,8 @@ public class TokenService {
         return token.substring(7, token.length());
     }
 
+    public String getSubject(String token) {
+        Claims claims = Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody();
+        return claims.getSubject();
+    }
 }

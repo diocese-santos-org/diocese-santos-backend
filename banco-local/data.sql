@@ -7,6 +7,15 @@ ALTER DATABASE dioceseSantos DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 use dioceseSantos;
 
+create table comunicado
+(
+    id        bigint auto_increment
+        primary key,
+    descricao varchar(255) null,
+    titulo    varchar(255) null
+);
+
+
 create table clero
 (
     id       bigint auto_increment

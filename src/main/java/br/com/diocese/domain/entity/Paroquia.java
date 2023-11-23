@@ -17,24 +17,21 @@ public class Paroquia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-
     @OneToOne
     private Endereco endereco;
     private String telefone;
     private String email;
     private String secretaria;
     private String urlSite;
-
     @OneToOne
     private Missa missas;
-
     @OneToOne
     private RedesSociais redesSociais;
-
     @ManyToMany
     @JoinTable(
             name = "paroquias_cleros",
             joinColumns = @JoinColumn(name = "paroquia_id"),
             inverseJoinColumns = @JoinColumn(name = "clero_id")
-    )    private List<Clero> cleros;
+    )
+    private List<Clero> cleros;
 }

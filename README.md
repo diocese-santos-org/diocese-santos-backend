@@ -33,25 +33,16 @@ cd nome_do_diretório
 
 4. Levantar a aplicação
 ```bash
-./mvnw spring-boot:run
+./mvnw spring-boot:run -Dspring.profiles.active=local
 ```
 
 ## Uso
 
 O backend estará acessível em: `http://localhost:8080`.
 
-
-
-Utilize o endpoint `/paroquia` com um método GET para enviar as coordenadas de geolocalização passando por Query param latitude e longitude
-
-O backend processará as coordenadas e retornará informações sobre as igrejas mais próximas que e os horarios das missas.
-
-Exemplo de uso com cURL:
+Token para acessar recursos protegidos passando sempre como Bearer:
 
 ```bash
-curl --request GET \
-  --url 'http://localhost:8080/paroquia?latitude=-23.938525&longitude=-46.418176' \
-  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
+eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgRW1wcmVzYSBEZXNhZmlvIiwic3ViIjoiZGlvY2VzZXNhbnRvcyIsImlhdCI6MTY5OTIzMjQyMywiZXhwIjoxNzAxMDU5ODEwfQ.dSM04FHQGFIKaN8TDh_Zy9TBtnK-BRAvb_ry5toV2u4
  ```
-
-
+Acesse `http://localhost:8080/swagger-ui.html` para ver todos os endpoints da aplicação e lembre-se de utilizar a autenticação Bearer
