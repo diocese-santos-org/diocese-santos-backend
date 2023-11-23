@@ -1,6 +1,7 @@
 package br.com.diocese.domain.entity;
 
 import br.com.diocese.interfaces.rest.form.ComunicadoForm;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Comunicado {
 
     @Id

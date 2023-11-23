@@ -16,7 +16,7 @@ public class ComunicadoFacedeImpl implements ComunicadoFacede {
     ComunicadoRepository comunicadoRepository;
 
     @Override
-    public ResponseEntity obterComunicados() {
+    public ResponseEntity   obterComunicados() {
         try {
             var comunicados = comunicadoRepository.findAll();
 
