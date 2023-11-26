@@ -1,7 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="DioceseSantosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-    <option name="ACTIVE_PROFILES" value="local" />
     <module name="diocese" />
+    <selectedOptions>
+      <option name="spring.boot.profiles" visible="false" />
+    </selectedOptions>
     <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.diocese.DioceseSantosApplication" />
     <method v="2">
       <option name="Make" enabled="true" />

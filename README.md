@@ -7,33 +7,35 @@ O Backend é a parte do projeto responsável por processar as coordenadas de geo
 - Java
 - Spring Boot
 - Docker
-- Mysql
 
 ## Pré requisitos
-Necessita ter Java 11, Docker, Maven.
+Necessita ter Java 17, Docker, Maven.
 
 ## Execução local subindo o banco
 
 1. Clone este repositório para o seu ambiente de desenvolvimento.
 
 ```bash
-git clone https://github.com/LeoRBlume/diocese-santos-backend.git 
+git clone https://github.com/diocese-santos-org/diocese-santos-backend.git
 ```
-2. Navegue até o diretório clonado:
+
+2. Abra seu docker
+
+3. Navegue até o diretório clonado:
 
 ```bash
 cd nome_do_diretório 
 ```
 
-3. Execute o script .sh:
+4. Execute o script .sh:
 
 ```bash
    sh script-banco.sh
 ```
 
-4. Levantar a aplicação
+5. Levantar a aplicação
 ```bash
-./mvnw spring-boot:run -Dspring.profiles.active=local
+./mvnw spring-boot:run
 ```
 
 ## Uso
