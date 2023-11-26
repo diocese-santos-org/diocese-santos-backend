@@ -1,6 +1,6 @@
 package br.com.diocese.application.impl;
 
-import br.com.diocese.infrastructure.repository.ComunicadoRepository;
+import br.com.diocese.infrastructure.repository.AvisoRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -17,19 +17,19 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
-public class ComunicadoFacedeImplTest {
+public class AvisoFacedeImplTest {
 
     @Mock
-    ComunicadoRepository comunicadoRepository;
+    AvisoRepository avisoRepository;
 
     @InjectMocks
-    ComunicadoFacedeImpl comunicadoFacede;
+    AvisoFacedeImpl avisoFacede;
 
     @Test
     public void obterComunicadosComObjetosEsperandoStatus200() {
 
-        when(comunicadoRepository.findAll()).thenReturn(Utils.getListComunicados());
-        var response = comunicadoFacede.obterComunicados();
+        when(avisoRepository.findAll()).thenReturn(Utils.getListAvisos());
+        var response = avisoFacede.obterAvisos();
 
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
 
@@ -38,8 +38,8 @@ public class ComunicadoFacedeImplTest {
     @Test
     public void obterComunicadosSemObjetosEsperandoStatus204() {
 
-        when(comunicadoRepository.findAll()).thenReturn(new ArrayList<>());
-        var response = comunicadoFacede.obterComunicados();
+        when(avisoRepository.findAll()).thenReturn(new ArrayList<>());
+        var response = avisoFacede.obterAvisos();
 
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.NO_CONTENT);
 
@@ -49,8 +49,8 @@ public class ComunicadoFacedeImplTest {
     @Test
     public void obterComunicadosPorIdEsperando200() {
 
-        when(comunicadoRepository.findById(1L)).thenReturn(Optional.of(Utils.getComunicado()));
-        var response = comunicadoFacede.obterComunicadoPorId(1L);
+        when(avisoRepository.findById(1L)).thenReturn(Optional.of(Utils.getAviso()));
+        var response = avisoFacede.obterAvisoPorId(1L);
 
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
 
@@ -59,8 +59,8 @@ public class ComunicadoFacedeImplTest {
     @Test
     public void obterComunicadosPorIdEsperando204() {
 
-        when(comunicadoRepository.findById(1L)).thenReturn(Optional.empty());
-        var response = comunicadoFacede.obterComunicadoPorId(1L);
+        when(avisoRepository.findById(1L)).thenReturn(Optional.empty());
+        var response = avisoFacede.obterAvisoPorId(1L);
 
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.NO_CONTENT);
 
@@ -69,10 +69,10 @@ public class ComunicadoFacedeImplTest {
     @Test
     public void deletarComunicadosPorIdEsperando200() {
 
-        when(comunicadoRepository.existsById(1L)).thenReturn(true);
-        doNothing().when(comunicadoRepository).deleteById(1L);
+        when(avisoRepository.existsById(1L)).thenReturn(true);
+        doNothing().when(avisoRepository).deleteById(1L);
 
-        var response = comunicadoFacede.deletarComunicadoPorId(1L);
+        var response = avisoFacede.deletarAvisoPorId(1L);
 
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
 
@@ -81,9 +81,9 @@ public class ComunicadoFacedeImplTest {
     @Test
     public void deletarComunicadosPorIdEsperando204() {
 
-        when(comunicadoRepository.existsById(1L)).thenReturn(false);
+        when(avisoRepository.existsById(1L)).thenReturn(false);
 
-        var response = comunicadoFacede.deletarComunicadoPorId(1L);
+        var response = avisoFacede.deletarAvisoPorId(1L);
 
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.NOT_FOUND);
 

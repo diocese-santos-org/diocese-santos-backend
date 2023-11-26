@@ -1,24 +1,24 @@
 package br.com.diocese.application.impl;
 
-import br.com.diocese.application.ComunicadoFacede;
-import br.com.diocese.domain.entity.Comunicado;
-import br.com.diocese.infrastructure.repository.ComunicadoRepository;
-import br.com.diocese.interfaces.rest.form.ComunicadoForm;
+import br.com.diocese.application.AvisoFacede;
+import br.com.diocese.domain.entity.Aviso;
+import br.com.diocese.infrastructure.repository.AvisoRepository;
+import br.com.diocese.interfaces.rest.form.AvisoForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ComunicadoFacedeImpl implements ComunicadoFacede {
+public class AvisoFacedeImpl implements AvisoFacede {
 
     @Autowired
-    ComunicadoRepository comunicadoRepository;
+    AvisoRepository avisoRepository;
 
     @Override
-    public ResponseEntity   obterComunicados() {
+    public ResponseEntity obterAvisos() {
         try {
-            var comunicados = comunicadoRepository.findAll();
+            var comunicados = avisoRepository.findAllByOrderByIdDesc();
 
             if (comunicados.isEmpty()) {
                 return ResponseEntity.noContent().build();
@@ -31,9 +31,9 @@ public class ComunicadoFacedeImpl implements ComunicadoFacede {
     }
 
     @Override
-    public ResponseEntity obterComunicadoPorId(Long idComunicado) {
+    public ResponseEntity obterAvisoPorId(Long idComunicado) {
         try {
-            var comunicado = comunicadoRepository.findById(idComunicado);
+            var comunicado = avisoRepository.findById(idComunicado);
 
             if (comunicado.isEmpty()) {
                 return ResponseEntity.noContent().build();
@@ -46,10 +46,10 @@ public class ComunicadoFacedeImpl implements ComunicadoFacede {
     }
 
     @Override
-    public ResponseEntity deletarComunicadoPorId(Long idComunicado) {
+    public ResponseEntity deletarAvisoPorId(Long idComunicado) {
         try {
-            if (comunicadoRepository.existsById(idComunicado)) {
-                comunicadoRepository.deleteById(idComunicado);
+            if (avisoRepository.existsById(idComunicado)) {
+                avisoRepository.deleteById(idComunicado);
                 return ResponseEntity.ok("Deletado com sucesso!");
             }
             return ResponseEntity.notFound().build();
@@ -59,12 +59,12 @@ public class ComunicadoFacedeImpl implements ComunicadoFacede {
     }
 
     @Override
-    public ResponseEntity cadastrarComunicado(ComunicadoForm comunicadoForm) {
+    public ResponseEntity cadastrarAviso(AvisoForm avisoForm) {
         try {
-            Comunicado comunicado = Comunicado.formToModel(comunicadoForm);
+            Aviso aviso = Aviso.formToModel(avisoForm);
 
-            Comunicado comunicadoCriado = comunicadoRepository.save(comunicado);
-            return ResponseEntity.status(HttpStatus.CREATED).body(comunicadoCriado);
+            Aviso avisoCriado = avisoRepository.save(aviso);
+            return ResponseEntity.status(HttpStatus.CREATED).body(avisoCriado);
 
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
