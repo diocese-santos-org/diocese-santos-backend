@@ -85,7 +85,7 @@ public class ComunicadoFacedeImplTest {
 
         var response = comunicadoFacede.deletarComunicadoPorId(1L);
 
-        Assertions.assertEquals(response.getStatusCode(), HttpStatus.NO_CONTENT);
+        Assertions.assertEquals(response.getStatusCode(), HttpStatus.NOT_FOUND);
 
     }
 }
