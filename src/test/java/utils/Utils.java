@@ -1,6 +1,6 @@
 package utils;
 
-import br.com.diocese.domain.entity.Comunicado;
+import br.com.diocese.domain.entity.Aviso;
 import br.com.diocese.domain.entity.Evento;
 import br.com.diocese.domain.entity.Paroquia;
 
@@ -10,16 +10,16 @@ import java.util.List;
 public class Utils {
 
 
-    public static Comunicado getComunicado() {
-        return new Comunicado(1L, "Titulo", "Descrição");
+    public static Aviso getAviso() {
+        return new Aviso(1L, "Titulo", "Descrição");
     }
 
-    public static List<Comunicado> getListComunicados() {
-        var lista = new ArrayList<Comunicado>();
+    public static List<Aviso> getListAvisos() {
+        var lista = new ArrayList<Aviso>();
 
-        lista.add(getComunicado());
-        lista.add(getComunicado());
-        lista.add(getComunicado());
+        lista.add(getAviso());
+        lista.add(getAviso());
+        lista.add(getAviso());
 
         return lista;
     }

@@ -1,6 +1,6 @@
 package br.com.diocese.domain.entity;
 
-import br.com.diocese.interfaces.rest.form.ComunicadoForm;
+import br.com.diocese.interfaces.rest.form.AvisoForm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Comunicado {
+public class Aviso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +22,10 @@ public class Comunicado {
     private String titulo;
     private String descricao;
 
-    public static Comunicado formToModel(ComunicadoForm comunicadoForm){
-        Comunicado comunicado = new Comunicado();
-        comunicado.setTitulo(comunicadoForm.getTitulo());
-        comunicado.setDescricao(comunicadoForm.getDescricao());
-        return comunicado;
+    public static Aviso formToModel(AvisoForm avisoForm){
+        Aviso aviso = new Aviso();
+        aviso.setTitulo(avisoForm.getTitulo());
+        aviso.setDescricao(avisoForm.getDescricao());
+        return aviso;
     }
 }

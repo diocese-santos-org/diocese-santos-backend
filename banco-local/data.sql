@@ -14,7 +14,7 @@ create table clero
     url_site varchar(255) null
 );
 
-create table comunicado
+create table aviso
 (
     id        bigint auto_increment
         primary key,
@@ -173,13 +173,13 @@ INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-05
 INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-08', 'Descrição do evento 19', '12:45', 'Local do evento 19', 'Título do evento 19');
 INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-10', 'Descrição do evento 20', '10:15', 'Local do evento 20', 'Título do evento 20');
 
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 1', 'Título do comunicado 1');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 2', 'Título do comunicado 2');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 3', 'Título do comunicado 3');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 4', 'Título do comunicado 4');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 5', 'Título do comunicado 5');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 6', 'Título do comunicado 6');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 7', 'Título do comunicado 7');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 8', 'Título do comunicado 8');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 9', 'Título do comunicado 9');
-INSERT INTO comunicado (descricao, titulo) VALUES ('Descrição do comunicado 10', 'Título do comunicado 10');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 1', 'Título do aviso 1');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 2', 'Título do aviso 2');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 3', 'Título do aviso 3');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 4', 'Título do aviso 4');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 5', 'Título do aviso 5');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 6', 'Título do aviso 6');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 7', 'Título do aviso 7');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 8', 'Título do aviso 8');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 9', 'Título do aviso 9');
+INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 10', 'Título do aviso 10');
