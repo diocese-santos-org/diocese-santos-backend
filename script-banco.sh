@@ -17,9 +17,9 @@ else
     docker-compose -f $DOCKER_COMPOSE_FILE up -d
     echo "Container sendo criado/executado"
 
-    echo "Aguardando 20s..."
-    sleep 30
-    echo "Executado com sucesso!"
+    echo "Aguardando 5s..."
+    sleep 5
+    echo "Finalizado com sucesso!"
 
   fi
 fi
