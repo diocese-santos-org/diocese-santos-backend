@@ -152,34 +152,101 @@ INSERT INTO paroquias_cleros (clero_id, paroquia_id) VALUES ('10', '4');
 INSERT INTO paroquias_cleros (clero_id, paroquia_id) VALUES ('11', '5');
 INSERT INTO paroquias_cleros (clero_id, paroquia_id) VALUES ('12', '5');
 
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-11-23', 'Descrição do evento 1', '14:00', 'Local do evento 1', 'Título do evento 1');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-11-25', 'Descrição do evento 2', '16:30', 'Local do evento 2', 'Título do evento 2');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-11-27', 'Descrição do evento 3', '10:00', 'Local do evento 3', 'Título do evento 3');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-11-30', 'Descrição do evento 4', '09:30', 'Local do evento 4', 'Título do evento 4');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-03', 'Descrição do evento 5', '13:45', 'Local do evento 5', 'Título do evento 5');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-05', 'Descrição do evento 6', '11:00', 'Local do evento 6', 'Título do evento 6');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-07', 'Descrição do evento 7', '15:20', 'Local do evento 7', 'Título do evento 7');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-10', 'Descrição do evento 8', '08:45', 'Local do evento 8', 'Título do evento 8');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-12', 'Descrição do evento 9', '12:00', 'Local do evento 9', 'Título do evento 9');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-15', 'Descrição do evento 10', '17:00', 'Local do evento 10', 'Título do evento 10');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-17', 'Descrição do evento 11', '09:30', 'Local do evento 11', 'Título do evento 11');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-20', 'Descrição do evento 12', '14:15', 'Local do evento 12', 'Título do evento 12');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-23', 'Descrição do evento 13', '11:45', 'Local do evento 13', 'Título do evento 13');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-25', 'Descrição do evento 14', '10:30', 'Local do evento 14', 'Título do evento 14');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-28', 'Descrição do evento 15', '16:45', 'Local do evento 15', 'Título do evento 15');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2023-12-31', 'Descrição do evento 16', '13:00', 'Local do evento 16', 'Título do evento 16');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-03', 'Descrição do evento 17', '09:00', 'Local do evento 17', 'Título do evento 17');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-05', 'Descrição do evento 18', '15:30', 'Local do evento 18', 'Título do evento 18');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-08', 'Descrição do evento 19', '12:45', 'Local do evento 19', 'Título do evento 19');
-INSERT INTO evento (data, descricao, horario, local, titulo) VALUES ('2024-01-10', 'Descrição do evento 20', '10:15', 'Local do evento 20', 'Título do evento 20');
 
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 1', 'Título do aviso 1');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 2', 'Título do aviso 2');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 3', 'Título do aviso 3');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 4', 'Título do aviso 4');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 5', 'Título do aviso 5');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 6', 'Título do aviso 6');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 7', 'Título do aviso 7');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 8', 'Título do aviso 8');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 9', 'Título do aviso 9');
-INSERT INTO aviso (descricao, titulo) VALUES ('Descrição do aviso 10', 'Título do aviso 10');
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-01-10', 'Aula inaugural de Dança', '14:00', 'Sala de Dança', 'Aula de Dança: Novos Passos');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-02-05', 'Conferência sobre Meio Ambiente', '09:00', 'Centro Comunitário', 'Conferência: Preservação Ambiental');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-03-20', 'Feira de Empreendedorismo', '11:00', 'Espaço de Convivência', 'Feira de Ideias Empreendedoras');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-04-12', 'Concerto Beneficente', '19:30', 'Teatro Municipal', 'Concerto em Benefício da Comunidade');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-05-18', 'Simpósio de Saúde Mental', '08:30', 'Centro de Convenções', 'Simpósio: Bem-Estar Mental');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-06-30', 'Festa Junina', '17:00', 'Área Externa', 'Arraiá Beneficente');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-07-22', 'Curso de Artesanato', '14:00', 'Sala de Artes', 'Curso: Técnicas Artesanais');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-08-10', 'Encontro de Famílias', '16:00', 'Salão Principal', 'Encontro Familiar');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-09-05', 'Palestra sobre Alimentação Saudável', '18:00', 'Cozinha Comunitária', 'Palestra: Nutrição Balanceada');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-10-20', 'Dia das Crianças', '10:00', 'Pátio Central', 'Celebração do Dia das Crianças');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-11-15', 'Workshop de Fotografia', '15:30', 'Estúdio Fotográfico', 'Workshop: Técnicas Fotográficas');
+
+INSERT INTO evento (data, descricao, horario, local, titulo)
+VALUES ('2024-12-22', 'Confraternização de Natal', '19:00', 'Salão de Festas', 'Jantar de Natal');
+
+-- Insira mais eventos conforme necessário
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Estudo bíblico toda quarta-feira às 19h. Todos são bem-vindos!', 'Estudo Bíblico');
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Encontro de jovens neste sábado às 17h. Venha participar!', 'Encontro de Jovens');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Visitação aos enfermos do hospital local. Participe como voluntário!', 'Visitação aos Enfermos');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Grupo de apoio para famílias. Reunião mensal no salão principal.', 'Grupo de Apoio para Famílias');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Inscrições para o retiro espiritual de fim de semana já estão abertas!', 'Retiro Espiritual');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Concerto beneficente de música clássica em prol da comunidade.', 'Concerto Beneficente');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Semana de oração pelas crianças em situação de vulnerabilidade.', 'Semana de Oração pelas Crianças');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Aula inaugural do curso de línguas estrangeiras. Inscreva-se!', 'Curso de Línguas Estrangeiras');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Café da manhã comunitário todo domingo após o culto.', 'Café Comunitário');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Reunião de líderes de grupos de estudo na próxima segunda-feira às 18h.', 'Reunião de Líderes de Grupos de Estudo');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Arrecadação de roupas de inverno para doação aos necessitados.', 'Campanha de Doação de Roupas');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Coral da igreja buscando novos membros. Venha fazer parte!', 'Recrutamento para o Coral');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Aviso sobre interrupção temporária do serviço de água na igreja. Manutenção em progresso.', 'Interrupção do Serviço de Água');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Festa junina beneficente no próximo sábado às 18h. Traga sua família!', 'Festa Junina Beneficente');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Conferência de saúde mental e emocional. Inscrições abertas!', 'Conferência de Saúde Mental');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Projeto de revitalização do jardim da igreja. Voluntários são bem-vindos!', 'Revitalização do Jardim');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Culto especial de Páscoa com apresentação teatral.', 'Culto de Páscoa');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Reunião do conselho administrativo na próxima quinta-feira às 16h.', 'Reunião do Conselho Administrativo');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Convidamos todos a participar da feira de artesanato no próximo domingo.', 'Feira de Artesanato');
+
+INSERT INTO aviso (descricao, titulo)
+VALUES ('Encontro de casais para fortalecimento dos laços matrimoniais.', 'Encontro de Casais');
+
