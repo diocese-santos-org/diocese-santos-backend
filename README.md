@@ -40,11 +40,26 @@ cd nome_do_diretório
 
 ## Uso
 
-O backend estará acessível em: `http://localhost:8080`.
+O backend estará acessível em: `http://localhost:8080 = {urlLocal}`. 
 
-Token para acessar recursos protegidos passando sempre como Bearer:
+Caso queira mudar a porta, modificar a server.port=8080 para a porta deseada
+
+
+### Token
+Token para acessar esta disponivel para ser gerado na url:`{urlLocal}/token`
+
+### Documentação: 
+Acesse `{urlLocal}/swagger-ui.html` para ver todos os endpoints da aplicação e lembre-se de utilizar a autenticação Bearer
+
+### Collection
+A [collection]( ./collection) do insomnia foi exportada para esta pasta.
+
+
+As urls estão com Enviroments, para adcionar basta colar esse json: 
 
 ```bash
-eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgRW1wcmVzYSBEZXNhZmlvIiwic3ViIjoiZGlvY2VzZXNhbnRvcyIsImlhdCI6MTY5OTIzMjQyMywiZXhwIjoxNzAxMDU5ODEwfQ.dSM04FHQGFIKaN8TDh_Zy9TBtnK-BRAvb_ry5toV2u4
- ```
-Acesse `http://localhost:8080/swagger-ui.html` para ver todos os endpoints da aplicação e lembre-se de utilizar a autenticação Bearer
+{
+	"url": "http://localhost:",
+	"porta": "8080"
+}
+```
