@@ -34,12 +34,16 @@ O Backend é a parte do projeto responsável por processar as coordenadas de geo
 - Spring Boot
 - Docker
 
-## Pré requisitos
-Necessita ter Java 17, Docker, Maven.
+### Pré requisitos
+- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- Maven (vem junto ao projeto)
+- [Docker](https://www.docker.com/products/docker-desktop/)
+- [Intellij IDEA (facilita para rodar)](https://www.jetbrains.com/idea/download/?section=windows)
+- [Git](https://git-scm.com/downloads)
 
-## Execução local subindo o banco
+### Execução local subindo o banco
 
-1. Clone este repositório para o seu ambiente de desenvolvimento.
+1. Já com git instalado, clone este repositório para o seu ambiente de desenvolvimento.
 
 ```bash
 git clone https://github.com/diocese-santos-org/diocese-santos-backend.git
@@ -64,20 +68,20 @@ cd nome_do_diretório
 ./mvnw spring-boot:run
 ```
 
-## Uso
+### Uso
 
 O backend estará acessível em: `http://localhost:8080 = {urlLocal}`. 
 
 Caso queira mudar a porta, modificar a server.port=8080 para a porta deseada
 
 
-### Token
+#### Token
 Token para acessar esta disponivel para ser gerado na url:`{urlLocal}/token`
 
-### Documentação: 
+#### Documentação: 
 Acesse `{urlLocal}/swagger-ui.html` para ver todos os endpoints da aplicação e lembre-se de utilizar a autenticação Bearer
 
-### Collection
+#### Collection
 A [collection]( ./collection) do insomnia foi exportada para esta pasta.
 
 
@@ -89,7 +93,3 @@ As urls estão com Enviroments, para adcionar basta colar esse json:
 	"porta": "8080"
 }
 ```
-
-### Links Importantes
-- WIKI do projeto: https://github.com/diocese-santos-org/diocese-santos-wiki/wiki
-- Front-End do projeto: https://github.com/diocese-santos-org/diocese-santos-front
