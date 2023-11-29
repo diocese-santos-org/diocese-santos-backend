@@ -2,6 +2,17 @@
 
 O Backend é a parte do projeto responsável por processar as coordenadas de geolocalização recebidas do aplicativo em React Native. Ele utiliza o framework Spring Boot para fornecer os endpoints necessários para receber as coordenadas, processá-las e retornar informações sobre as igrejas mais próximas que terão missas.
 
+## Índice
+
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Pré requisitos](#pré-requisitos)
+- [Execução local subindo o banco](#execução-local-subindo-o-banco)
+- [Uso](#uso)
+- [Token](#token)
+- [Documentação](#documentação)
+- [Collection](#collection)
+- [Links Importantes](#links-importantes)
+
 ## Tecnologias Utilizadas
 
 - Java
