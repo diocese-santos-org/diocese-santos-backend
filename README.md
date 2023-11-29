@@ -63,3 +63,6 @@ As urls estão com Enviroments, para adcionar basta colar esse json:
 	"porta": "8080"
 }
 ```
+
+### Links Importantes
+Link para WIKI do projeto: https://github.com/diocese-santos-org/diocese-santos-wiki
