@@ -4,13 +4,13 @@ O Backend é a parte do projeto responsável por processar as coordenadas de geo
 
 ## Integrantes
 > - Carlos Eduardo Lorenzetti Júnior
-> - Elián Roventini de Andrade - https://www.linkedin.com/in/elianroventini/
-> - Gabriel Souza Recouso - https://www.linkedin.com/in/gabrielrecouso/
-> - Gustavo Barbosa - https://www.linkedin.com/in/gustavobarb/
-> - Lara Iasmine Pedroso Fabiano - https://www.linkedin.com/in/lara-iasmine-fabiano/
-> - Leonardo Ribeiro Blume - https://www.linkedin.com/in/leonardo-blume-5484311b5/
-> - Matheus La Scala Candido da Costa - https://www.linkedin.com/in/matheus-la-scala-1a1b091b0/
-> - Tiago Samuel Sousa dos Santos - https://www.linkedin.com/in/tiagosts99
+> - Elián Roventini de Andrade - [Linkedin - Elián Andrade](https://www.linkedin.com/in/elianroventini/)
+> - Gabriel Souza Recouso - [Linkedin - Gabriel Recouso](https://www.linkedin.com/in/gabrielrecouso/)
+> - Gustavo Lino Barbosa - [Linkedin - Gustavo Barbosa](https://www.linkedin.com/in/gustavobarb/)
+> - Lara Iasmine Pedroso Fabiano - [Linkedin - Lara Iasmine](https://www.linkedin.com/in/lara-iasmine-fabiano/)
+> - Leonardo Ribeiro Blume - [Linkedin - Leonardo Blume](https://www.linkedin.com/in/leonardo-blume-5484311b5/)
+> - Matheus La Scala Candido da Costa - [Linkedin - Matheus La Scala](https://www.linkedin.com/in/matheus-la-scala-1a1b091b0/)
+> - Tiago Samuel Sousa dos Santos - [Linkedin - Tiago Samuel](https://www.linkedin.com/in/tiagosts99)
 
 ## Índice
 
