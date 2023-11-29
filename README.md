@@ -76,4 +76,5 @@ As urls estão com Enviroments, para adcionar basta colar esse json:
 ```
 
 ### Links Importantes
-Link para WIKI do projeto: https://github.com/diocese-santos-org/diocese-santos-wiki
+WIKI do projeto: https://github.com/diocese-santos-org/diocese-santos-wiki
+Front-End do projeto: https://github.com/diocese-santos-org/diocese-santos-front
