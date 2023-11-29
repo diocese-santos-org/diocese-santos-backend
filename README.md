@@ -2,6 +2,11 @@
 
 O Backend é a parte do projeto responsável por processar as coordenadas de geolocalização recebidas do aplicativo em React Native. Ele utiliza o framework Spring Boot para fornecer os endpoints necessários para receber as coordenadas, processá-las e retornar informações sobre as igrejas mais próximas que terão missas.
 
+# Link Importantes
+- ORG do projeto: [Diocese Santos - ORG](https://github.com/diocese-santos-org)
+- Wiki do projeto: [Diocese Santos - Wiki](https://github.com/diocese-santos-org/diocese-santos-wiki/wiki)
+- Front-End do projeto: [Diocese Santos - Front-End](https://github.com/diocese-santos-org/diocese-santos-front)
+
 ## Integrantes
 > - Carlos Eduardo Lorenzetti Júnior
 > - Elián Roventini de Andrade - [Linkedin - Elián Andrade](https://www.linkedin.com/in/elianroventini/)
